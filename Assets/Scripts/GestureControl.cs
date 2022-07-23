@@ -12,15 +12,15 @@ public class GestureControl : MonoBehaviour
     private bool _startGesture = false;
     [SerializeField]private int _horizontalSensitivity = 200;
     [SerializeField]private int _verticalSensitivity = 200;
-    private PlayerMovement _player;
+    private PlayerScript _player;
     private void Start()
     {
-        _player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        _player = GameObject.FindWithTag("Player").GetComponent<PlayerScript>();
     }
     private void Gesture()
     {
         float moveX = _mouseUpPosX - _mouseDownPosX;
-        Debug.Log(Math.Abs(moveX)+moveX);
+        
         float moveY = _mouseDownPosY - _mouseUpPosY;
         if (Math.Abs(moveX) > Math.Abs(moveY))
         {
