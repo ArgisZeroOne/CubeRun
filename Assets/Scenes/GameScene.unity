@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _posIndex: 0
   _speed: 0.1
+  _lifes: 3
 --- !u!65 &389063450
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -362,7 +363,8 @@ MonoBehaviour:
   _enemyObjects:
   - {fileID: 2211005445175282358, guid: 0f14016afd6b9489f8f1061b94631421, type: 3}
   _helperObject:
-  - {fileID: 178596731323333627, guid: e5dcf236631e847c38fd84a534b2e8f6, type: 3}
+  - {fileID: 4363642686579860551, guid: 19c983e2c26944f3e866e0f156ab673b, type: 3}
+  - {fileID: 5561808322992256783, guid: 87a4207957e7d41a688290f5fb9b4cd4, type: 3}
   _spawnPositions:
   - {fileID: 534071815}
   - {fileID: 961945997}
@@ -370,7 +372,7 @@ MonoBehaviour:
   - {fileID: 655231380}
   - {fileID: 1923781113}
   - {fileID: 666717490}
-  _helperPercent: 20
+  _helperPercent: 99
 --- !u!1 &655231380
 GameObject:
   m_ObjectHideFlags: 0

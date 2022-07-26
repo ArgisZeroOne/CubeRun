@@ -7,9 +7,18 @@ public class PlayerScript : MonoBehaviour
     private float _heightIndex = -1.5f;
     [SerializeField] private float _speed = 0.1f;
     [SerializeField] private int _lifes = 3;
+    [SerializeField] private int _maxLifes = 3;
     private void Movement()
     {
         transform.Translate((_posIndex - transform.position.x) * _speed, (_heightIndex - transform.position.y) * _speed, 0f);
+
+    }
+    public void Heal(int Value)
+    {
+        if (_lifes < _maxLifes)
+        {
+            _lifes += Value;
+        }
 
     }
 
@@ -44,13 +53,15 @@ public class PlayerScript : MonoBehaviour
     }
     public void Hirt()
     {
-        if (_lifes > 1) {
+        if (_lifes > 1)
+        {
             _lifes--;
-        } else
+        }
+        else
         {
             Dead();
         }
-        
+
     }
     private void Dead()
     {

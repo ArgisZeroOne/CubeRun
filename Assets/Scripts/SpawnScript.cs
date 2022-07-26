@@ -14,36 +14,36 @@ public class SpawnScript : MonoBehaviour
     {
         var SpawnPoints = _spawnPositions.Length;
         var SpawnIndexes = new List<int>();
-        for (int i = 0; i< SpawnPoints; i++)
+        for (int i = 0; i < SpawnPoints; i++)
         {
-            var RandomIndex = Random.Range(0,6);
+            var RandomIndex = Random.Range(0, 6);
             bool Contain = SpawnIndexes.Contains(RandomIndex);
             while (Contain)
             {
                 RandomIndex = Random.Range(0, 6);
                 Contain = SpawnIndexes.Contains(RandomIndex);
             }
-            
+
             SpawnIndexes.Add(RandomIndex);
         }
-        for (int i = 0; i < SpawnPoints-1; i++)
+        for (int i = 0; i < SpawnPoints - 1; i++)
         {
             Transform SpawnPoint = _spawnPositions[SpawnIndexes[i]].transform;
-            Instantiate(_enemyObjects[Random.Range(0, _enemyObjects.Length)],SpawnPoint);
+            Instantiate(_enemyObjects[Random.Range(0, _enemyObjects.Length)], SpawnPoint);
         }
         var HelperChance = Random.Range(0, 101);
         if (HelperChance <= _helperPercent)
         {
             Transform SpawnHelperPoint = _spawnPositions[SpawnIndexes[SpawnPoints - 1]].transform;
-            Instantiate(_helperObject[Random.Range(0, _enemyObjects.Length)], SpawnHelperPoint);
+            Instantiate(_helperObject[Random.Range(0, _enemyObjects.Length + 1)], SpawnHelperPoint);
         }
-        
+
     }
 
     private void FixedUpdate()
     {
         _frames++;
-        if(_framesToSpawn <= _frames)
+        if (_framesToSpawn <= _frames)
         {
             _frames = 0;
             Spawn();
